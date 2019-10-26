@@ -14,6 +14,7 @@ void VisitTNode(char data) {
 	printf(" %c ", data);
 }
 
+// 先序遍历
 void PreOrder(BiTree root) {
 	if (!root) {
 		return;
@@ -24,6 +25,7 @@ void PreOrder(BiTree root) {
 	PreOrder(root->RChild);
 }
 
+// 中序遍历
 void InOrder(BiTree root) {
 	if (!root) {
 		return;
@@ -34,6 +36,7 @@ void InOrder(BiTree root) {
 	PreOrder(root->RChild);
 }
 
+// 后序遍历
 void PostOrder(BiTree root) {
 	if (!root) {
 		return;
