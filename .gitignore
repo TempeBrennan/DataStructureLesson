@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DataStructureTextBook/.vs/DataStructureTextBook/v15
+/DataStructureTextBook/DataStructureTextBook/Debug
+/DataStructureTextBook/DataStructureTextBook-UnitTest/Debug
+/DataStructureTextBook/Debug
+/DataStructureTextBook/DataStructureTextBook/DataStructureTextBook.vcxproj.filters
+/DataStructureTextBook/DataStructureTextBook/DataStructureTextBook.vcxproj.user
+/DataStructureTextBook/DataStructureTextBook-UnitTest/DataStructureTextBook-UnitTest.vcxproj.user
+/DataStructureTextBook/DataStructureTextBook-UnitTest/DataStructureTextBook-UnitTest.vcxproj.filters
