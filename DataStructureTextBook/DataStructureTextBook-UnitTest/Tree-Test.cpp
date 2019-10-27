@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "../DataStructureTextBook/BinaryTree.c"
+#include "../DataStructureTextBook/Tree.c"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -83,6 +83,12 @@ namespace DataStructureTextBookUnitTest
 		{
 			BiTree tree = CreateTree02();
 			PostOrder(tree);
+		}
+
+		TEST_METHOD(TestMethod7)
+		{
+			BiTree tree = CreateTree01();
+			PreOrderNonRecur(tree);
 		}
 	};
 }

@@ -115,10 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BinaryTree.c" />
+    <ClCompile Include="Tree.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Stack.c" />
+    <ClCompile Include="TreePractice1.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Stack.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
