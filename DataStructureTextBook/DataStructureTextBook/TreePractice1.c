@@ -38,7 +38,7 @@ void PrintTreeLeafNodeCount(BiTree root) {
 		return 0;
 	}
 	if (root->LChild == NULL && root->RChild == NULL) {
-		printf(" %c ", root->data);;
+		printf(" %c ", root->Data);;
 	}
 	PrintTreeLeafNodeCount(root->LChild);
 	PrintTreeLeafNodeCount(root->RChild);
@@ -108,7 +108,7 @@ void Horizontal(BiTree root, int h) {
 	for (int i = 0; i < h; i++) {
 		printf(" ");
 	}
-	printf("%c\n", root->data);
+	printf("%c\n", root->Data);
 	Horizontal(root->LChild, h + 1);
 }
 
@@ -122,7 +122,7 @@ BiTree CreatePreTNode() {
 	}
 
 	root = (BiTree)malloc(sizeof(BiTNode));
-	root->data = data;
+	root->Data = data;
 	root->LChild = CreatePreTNode();
 	root->RChild = CreatePreTNode();
 }

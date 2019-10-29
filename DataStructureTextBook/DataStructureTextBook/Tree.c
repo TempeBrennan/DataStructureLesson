@@ -5,7 +5,7 @@
 
 BiTree CreateTNode(char data) {
 	BiTree root = (BiTree)malloc(sizeof(BiTNode));
-	root->data = data;
+	root->Data = data;
 	root->LChild = NULL;
 	root->RChild = NULL;
 	return root;
@@ -21,7 +21,7 @@ void PreOrder(BiTree root) {
 		return;
 	}
 
-	VisitTNode(root->data);
+	VisitTNode(root->Data);
 	PreOrder(root->LChild);
 	PreOrder(root->RChild);
 }
@@ -33,7 +33,7 @@ void InOrder(BiTree root) {
 	}
 
 	PreOrder(root->LChild);
-	VisitTNode(root->data);
+	VisitTNode(root->Data);
 	PreOrder(root->RChild);
 }
 
@@ -45,7 +45,7 @@ void PostOrder(BiTree root) {
 
 	PreOrder(root->LChild);
 	PreOrder(root->RChild);
-	VisitTNode(root->data);
+	VisitTNode(root->Data);
 }
 
 // 先序遍历的非递归实现
@@ -62,7 +62,7 @@ void PreOrderNonRecur(BiTree root) {
 	{
 		while (cur != NULL)
 		{
-			VisitTNode(cur->data);
+			VisitTNode(cur->Data);
 			Push(stack, &cur);
 			cur = cur->LChild;
 		}
@@ -91,7 +91,7 @@ void InOrderNonRecur(BiTree root) {
 		}
 
 		top = (BiTree*)Pop(stack);
-		VisitTNode((*top)->data);
+		VisitTNode((*top)->Data);
 		cur = (*top)->RChild;
 	}
 }
@@ -103,7 +103,7 @@ void PostOrderNonRecur(BiTree root) {
 	}
 
 	StackPTR stack = CreateStack(sizeof(BiTNode));
-	BiTree cur = root, pre;
+	BiTree cur = root, pre = NULL;
 	BiTree* top;
 
 	while (cur != NULL || IsStackEmpty(stack))
@@ -117,7 +117,7 @@ void PostOrderNonRecur(BiTree root) {
 		top = (BiTree*)Top(stack);
 		if ((*top)->RChild == NULL || (*top)->RChild == pre) {
 			top = (BiTree*)Pop(stack);
-			VisitTNode((*top)->data);
+			VisitTNode((*top)->Data);
 			pre = *top;
 		}
 		else
