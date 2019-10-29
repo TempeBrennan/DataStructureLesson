@@ -11,6 +11,15 @@ namespace DataStructureTextBookUnitTest
 	{
 	public:
 
+		/*
+					A
+				  /   \
+				 B     C
+				/     /  \
+			   D     E    F
+			    \     \
+				G       H
+		*/
 		BiTree CreateTree01() {
 			BiTree tr1 = CreateTNode('A');
 			BiTree tr2 = CreateTNode('B');
@@ -30,6 +39,15 @@ namespace DataStructureTextBookUnitTest
 			return tr1;
 		}
 
+		/*
+					A
+				  /   \
+				 B      C
+				  \    /  \
+			       D   E   F
+				  /       /
+				 G       H
+		*/
 		BiTree CreateTree02() {
 			BiTree tr1 = CreateTNode('A');
 			BiTree tr2 = CreateTNode('B');
