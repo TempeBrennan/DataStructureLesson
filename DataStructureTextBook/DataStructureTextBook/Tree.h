@@ -1,4 +1,6 @@
 #pragma once
+#define N 30
+#define M 2*N-1
 typedef struct Node {
 	char Data;
 	struct Node* LChild;
@@ -12,3 +14,11 @@ typedef struct ClueNode {
 	int LTag;
 	int RTag;
 } BiClueTNode, *BiClueTree;
+
+typedef struct HuffmanNode {
+	int Data;
+	int LChild;
+	int RChild;
+	int Parent;
+	int RTag;
+} HuffmanNode, HuffmanNodeTree[M + 1];

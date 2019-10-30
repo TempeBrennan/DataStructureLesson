@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ClueTree.c" />
+    <ClCompile Include="HuffmanTree.c" />
     <ClCompile Include="Tree.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Stack.c" />
