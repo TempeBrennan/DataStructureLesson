@@ -43,5 +43,5 @@ void* Top(StackPTR stack) {
 }
 
 bool IsStackEmpty(StackPTR stack) {
-	return stack->Count > 0;
+	return stack->Count == 0;
 }

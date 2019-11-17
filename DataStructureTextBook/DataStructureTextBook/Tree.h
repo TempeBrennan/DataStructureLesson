@@ -9,8 +9,8 @@ typedef struct Node {
 
 typedef struct ClueNode {
 	char Data;
-	struct Node* LChild;
-	struct Node* RChild;
+	struct ClueNode* LChild;
+	struct ClueNode* RChild;
 	int LTag;
 	int RTag;
 } BiClueTNode, *BiClueTree;

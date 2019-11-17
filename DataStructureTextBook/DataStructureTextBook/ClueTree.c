@@ -4,23 +4,30 @@
 #include "Tree.h"
 #include "Stack.h"
 
+BiClueTree CreateClueNode(char data) {
+	BiClueTree root = (BiClueTree)malloc(sizeof(BiClueTree));
+	root->Data = data;
+	root->LChild = NULL;
+	root->RChild = NULL;
+	return root;
+}
 
 // 构造中序线索二叉树
-void InOrderClueTree(BiClueTree root, BiClueTree pre) {
+void InOrderClueTree(BiClueTree root, BiClueTree *pre) {
 	if (root == NULL) {
 		return;
 	}
 
 	InOrderClueTree(root->LChild, pre);
-	if (pre != NULL && pre->RChild == NULL) {
-		pre->RTag = 1;
-		pre->RChild = root;
+	if ((*pre) != NULL && (*pre)->RChild == NULL) {
+		(*pre)->RTag = 1;
+		(*pre)->RChild = root;
 	}
 	if (root->LChild == NULL) {
 		root->LTag = 1;
-		root->LChild = pre;
+		root->LChild = (*pre);
 	}
-	pre = root;
+	(*pre) = root;
 	InOrderClueTree(root->RChild, pre);
 }
 

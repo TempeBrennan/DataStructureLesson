@@ -35,7 +35,7 @@ int GetTreeLeafNodeCount(BiTree root) {
 // 3. 输出一棵二叉树所有叶子节点
 void PrintTreeLeafNodeCount(BiTree root) {
 	if (root == NULL) {
-		return 0;
+		return;
 	}
 	if (root->LChild == NULL && root->RChild == NULL) {
 		printf(" %c ", root->Data);;
@@ -53,7 +53,10 @@ int GetTreeHeight(BiTree root) {
 	if (root->LChild == NULL && root->RChild == NULL) {
 		return 1;
 	}
-	return Max(GetTreeHeight(root->LChild), GetTreeHeight(root->RChild)) + 1;
+
+	int h1 = GetTreeHeight(root->LChild);
+	int h2 = GetTreeHeight(root->RChild);
+	return Max(h1, h2) + 1;
 }
 
 

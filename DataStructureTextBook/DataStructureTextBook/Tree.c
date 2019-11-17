@@ -58,7 +58,7 @@ void PreOrderNonRecur(BiTree root) {
 	BiTree cur = root;
 	BiTree* top;
 
-	while (cur != NULL || IsStackEmpty(stack))
+	while (cur != NULL || !IsStackEmpty(stack))
 	{
 		while (cur != NULL)
 		{
@@ -82,7 +82,7 @@ void InOrderNonRecur(BiTree root) {
 	BiTree cur = root;
 	BiTree* top;
 
-	while (cur != NULL || IsStackEmpty(stack))
+	while (cur != NULL || !IsStackEmpty(stack))
 	{
 		while (cur != NULL)
 		{
@@ -106,7 +106,7 @@ void PostOrderNonRecur(BiTree root) {
 	BiTree cur = root, pre = NULL;
 	BiTree* top;
 
-	while (cur != NULL || IsStackEmpty(stack))
+	while (cur != NULL || !IsStackEmpty(stack))
 	{
 		while (cur != NULL)
 		{
