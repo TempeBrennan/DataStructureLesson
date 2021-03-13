@@ -10,3 +10,5 @@
 /DataStructureTextBook/DataStructureTextBook/DataStructureTextBook.vcxproj.user
 /DataStructureTextBook/DataStructureTextBook-UnitTest/DataStructureTextBook-UnitTest.vcxproj.user
 /DataStructureTextBook/DataStructureTextBook-UnitTest/DataStructureTextBook-UnitTest.vcxproj.filters
+.vs
+*.htm
