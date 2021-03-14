@@ -5,43 +5,50 @@
 #include "Stack.h"
 
 
-StackPTR CreateStack(int eleSize) {
+StackPTR CreateStack() {
 	StackPTR stack = (StackPTR)malloc(sizeof(Stack));
-	stack->Count = 0;
-	stack->MaxCount = StackOriginalSize;
-	stack->EleSize = eleSize;
-	stack->Start = (void*)malloc(eleSize*StackOriginalSize);
+	stack->top = -1;
 	return stack;
 }
 
-void Push(StackPTR stack, void* data) {
-	if (stack->Count == stack->MaxCount)
-	{
-		stack->MaxCount += StackOriginalSize;
-		realloc(stack->Start, stack->MaxCount);
+bool Empty_SeqStack(StackPTR stack) {
+	if (stack->top == -1) {
+		return true;
 	}
-
-	// 可以先随便指定一个类型
-	void* dest = (char*)stack->Start + (stack->Count)*(stack->EleSize);
-	memcpy(dest, data, stack->EleSize);
-	stack->Count++;
+	else {
+		return false;
+	}
 }
 
-void* Pop(StackPTR stack) {
-	void *data, *result = malloc(stack->EleSize);
-	stack->Count--;
-	data = (char*)stack->Start + (stack->Count)*(stack->EleSize);
-	memcpy(result, data, stack->EleSize);
-	return result;
+int Push_SeqStack(StackPTR stack, int x) {
+	if (stack->top == MAXSTACKSIZE - 1) {
+		return -1;
+	}
+	else {
+		stack->top++;
+		stack->data[stack->top] = x;
+		return 1;
+	}
 }
 
-void* Top(StackPTR stack) {
-	void *data, *result = malloc(stack->EleSize);
-	data = (char*)stack->Start + (stack->Count - 1)*(stack->EleSize);
-	memcpy(result, data, stack->EleSize);
-	return result;
+int Pop_SeqStack(StackPTR stack) {
+	if (Empty_SeqStack(stack)) {
+		return -1;
+	}
+	else
+	{
+		int result = stack->data[stack->top];
+		stack->top--;
+		return 1;
+	}
 }
 
-bool IsStackEmpty(StackPTR stack) {
-	return stack->Count == 0;
+int Top_SeqStack(StackPTR stack) {
+	if (Empty_SeqStack(stack)) {
+		return -1;
+	}
+	else
+	{
+		return stack->data[stack->top];
+	}
 }

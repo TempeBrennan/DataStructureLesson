@@ -115,16 +115,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ClueTree.c" />
-    <ClCompile Include="HuffmanTree.c" />
-    <ClCompile Include="Tree.c" />
+    <ClCompile Include="create.c" />
+    <ClCompile Include="MinTree.c" />
+    <ClCompile Include="Queue.c" />
+    <ClCompile Include="TopSort.c" />
+    <ClCompile Include="traverse.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Stack.c" />
-    <ClCompile Include="TreePractice1.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
-    <ClInclude Include="Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

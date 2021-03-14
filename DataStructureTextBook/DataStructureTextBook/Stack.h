@@ -2,19 +2,18 @@
 # define StackOriginalSize  8
 #include "stdbool.h"
 
-typedef struct Stack {
-	int Count;
-	int MaxCount;
-	int EleSize;
-	void * Start;
-} Stack, *StackPTR;
+#define MAXSTACKSIZE 100000
+typedef struct {
+	int data[MAXSTACKSIZE];
+	int top;
+}Stack, *StackPTR;
 
-StackPTR CreateStack(int size);
+StackPTR CreateStack();
 
-void Push(StackPTR stack, void* data);
+bool Empty_SeqStack(StackPTR stack);
 
-void* Pop(StackPTR stack);
+int Push_SeqStack(StackPTR stack, int x);
 
-void* Top(StackPTR stack);
+int Pop_SeqStack(StackPTR stack);
 
-bool IsStackEmpty(StackPTR stack);
+int Top_SeqStack(StackPTR stack);
