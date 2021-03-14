@@ -15,6 +15,10 @@ void VisitTNode(char data) {
 	printf(" %c ", data);
 }
 
+// 第6章 树
+// 6.4.1 p128
+
+// 算法 6.1
 // 先序遍历
 void PreOrder(BiTree root) {
 	if (!root) {
@@ -26,6 +30,7 @@ void PreOrder(BiTree root) {
 	PreOrder(root->RChild);
 }
 
+// 算法 6.2
 // 中序遍历
 void InOrder(BiTree root) {
 	if (!root) {
@@ -37,6 +42,7 @@ void InOrder(BiTree root) {
 	PreOrder(root->RChild);
 }
 
+// 算法 6.3
 // 后序遍历
 void PostOrder(BiTree root) {
 	if (!root) {
@@ -48,7 +54,8 @@ void PostOrder(BiTree root) {
 	VisitTNode(root->Data);
 }
 
-// 先序遍历的非递归实现
+// p129 算法6.4
+// 先序非递归遍历二叉树
 void PreOrderNonRecur(BiTree root) {
 	if (!root) {
 		return;
@@ -58,21 +65,22 @@ void PreOrderNonRecur(BiTree root) {
 	BiTree cur = root;
 	BiTree* top;
 
-	while (cur != NULL || !IsStackEmpty(stack))
+	while (cur != NULL || !Empty_SeqStack(stack))
 	{
 		while (cur != NULL)
 		{
 			VisitTNode(cur->Data);
-			Push(stack, &cur);
+			Push_SeqStack(stack, &cur);
 			cur = cur->LChild;
 		}
 
-		top = (BiTree*)Pop(stack);
+		top = (BiTree*)Pop_SeqStack(stack);
 		cur = (*top)->RChild;
 	}
 }
 
-// 中序遍历的非递归实现
+// p130 算法6.5
+// 中序非递归遍历二叉树
 void InOrderNonRecur(BiTree root) {
 	if (!root) {
 		return;
@@ -82,21 +90,22 @@ void InOrderNonRecur(BiTree root) {
 	BiTree cur = root;
 	BiTree* top;
 
-	while (cur != NULL || !IsStackEmpty(stack))
+	while (cur != NULL || !Empty_SeqStack(stack))
 	{
 		while (cur != NULL)
 		{
-			Push(stack, &cur);
+			Push_SeqStack(stack, &cur);
 			cur = cur->LChild;
 		}
 
-		top = (BiTree*)Pop(stack);
+		top = (BiTree*)Pop_SeqStack(stack);
 		VisitTNode((*top)->Data);
 		cur = (*top)->RChild;
 	}
 }
 
-// 后序遍历的非递归实现
+// p131 算法 6.7
+// 后序非递归遍历二叉树
 void PostOrderNonRecur(BiTree root) {
 	if (!root) {
 		return;
@@ -106,17 +115,17 @@ void PostOrderNonRecur(BiTree root) {
 	BiTree cur = root, pre = NULL;
 	BiTree* top;
 
-	while (cur != NULL || !IsStackEmpty(stack))
+	while (cur != NULL || !Empty_SeqStack(stack))
 	{
 		while (cur != NULL)
 		{
-			Push(stack, &cur);
+			Push_SeqStack(stack, &cur);
 			cur = cur->LChild;
 		}
 
-		top = (BiTree*)Top(stack);
+		top = (BiTree*)Top_SeqStack(stack);
 		if ((*top)->RChild == NULL || (*top)->RChild == pre) {
-			top = (BiTree*)Pop(stack);
+			top = (BiTree*)Pop_SeqStack(stack);
 			VisitTNode((*top)->Data);
 			pre = *top;
 		}

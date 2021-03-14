@@ -4,6 +4,8 @@
 #include "Tree.h"
 #include "Stack.h"
 
+// 6.7 哈夫曼树及其应用
+
 HuffmanNode Select(HuffmanNodeTree ht, int lastCount, int first, int second) {
 	first = 1;
 	for (int i = 2; i <= lastCount; i++) {
@@ -31,6 +33,8 @@ HuffmanNode Select(HuffmanNodeTree ht, int lastCount, int first, int second) {
 	}
 }
 
+// p150
+// 算法 6.25 建立哈夫曼树
 void CreateHuffmanTree(HuffmanNodeTree ht, int data[], int leafCount) {
 	int total = leafCount * 2 - 1;
 	for (int i = 1; i <= leafCount; i++) {

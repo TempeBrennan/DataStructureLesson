@@ -11,6 +11,8 @@ int Max(int num1, int num2) {
 	return num1 > num2 ? num1 : num2;
 }
 
+// P132 遍历算法应用
+
 // 1. 统计一棵二叉树有多少节点
 int GetTreeNodeCount(BiTree root) {
 	if (root == NULL) {

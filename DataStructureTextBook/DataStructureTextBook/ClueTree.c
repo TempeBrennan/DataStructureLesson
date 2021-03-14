@@ -12,6 +12,11 @@ BiClueTree CreateClueNode(char data) {
 	return root;
 }
 
+// 6.5.2 线索二叉树的基本操作
+
+// 1. 二叉树的线索化
+
+// p139 算法6.18
 // 构造中序线索二叉树
 void InOrderClueTree(BiClueTree root, BiClueTree *pre) {
 	if (root == NULL) {
@@ -32,6 +37,9 @@ void InOrderClueTree(BiClueTree root, BiClueTree *pre) {
 }
 
 
+// p139 
+
+// 算法6.19
 // 给定中序线索二叉树中某个节点，查找它的前驱
 BiClueTree GetInOrderClueTreePre(BiClueTree find) {
 	if (find == NULL) {
@@ -49,7 +57,7 @@ BiClueTree GetInOrderClueTreePre(BiClueTree find) {
 	}
 }
 
-
+// 算法 6.20
 // 给定中序线索二叉树中某个节点，查找它的后继
 BiClueTree GetInOrderClueTreePost(BiClueTree find) {
 	if (find == NULL) {
@@ -68,6 +76,7 @@ BiClueTree GetInOrderClueTreePost(BiClueTree find) {
 }
 
 
+// 算法 6.21
 // 求中序线索二叉树遍历的第一个节点
 BiClueTree GetInOrderClueTreeFirst(BiClueTree root) {
 	if (root == NULL) {
@@ -81,6 +90,7 @@ BiClueTree GetInOrderClueTreeFirst(BiClueTree root) {
 	return root;
 }
 
+// 算法 6.22
 // 中序线索二叉树遍历
 void InOrderClueTreeTraverse(BiClueTree root) {
 	if (root == NULL) {
