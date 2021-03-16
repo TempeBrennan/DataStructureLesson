@@ -61,7 +61,7 @@ void PreOrderNonRecur(BiTree root) {
 		return;
 	}
 
-	StackPTR stack = CreateStack(sizeof(BiTNode));
+	StackPTR stack = CreateStack();
 	BiTree cur = root;
 	BiTree* top;
 
@@ -86,7 +86,7 @@ void InOrderNonRecur(BiTree root) {
 		return;
 	}
 
-	StackPTR stack = CreateStack(sizeof(BiTNode));
+	StackPTR stack = CreateStack();
 	BiTree cur = root;
 	BiTree* top;
 
@@ -111,7 +111,7 @@ void PostOrderNonRecur(BiTree root) {
 		return;
 	}
 
-	StackPTR stack = CreateStack(sizeof(BiTNode));
+	StackPTR stack = CreateStack();
 	BiTree cur = root, pre = NULL;
 	BiTree* top;
 

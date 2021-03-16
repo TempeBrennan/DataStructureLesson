@@ -2,6 +2,7 @@
 
 #define MAXVEX 1000
 #define INVALID 32767
+#define MAXVALUE 99999999
 
 typedef char Vextype;
 

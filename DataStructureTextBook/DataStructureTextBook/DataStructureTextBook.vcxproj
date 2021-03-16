@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="ClueTree.c" />
     <ClCompile Include="create.c" />
+    <ClCompile Include="Dijkstra.c" />
     <ClCompile Include="HuffmanTree.c" />
     <ClCompile Include="MinTree.c" />
     <ClCompile Include="Queue.c" />
