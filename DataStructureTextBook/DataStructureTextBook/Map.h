@@ -34,3 +34,6 @@ typedef struct {
 AdjMatrix * CreateMap1();
 void testDFS1();
 int TopSort(AdjList G);
+void TraverseG1(AdjMatrix *G);
+void TraverseG2(AdjMatrix *G);
+void TraverseG3(AdjMatrix *G);

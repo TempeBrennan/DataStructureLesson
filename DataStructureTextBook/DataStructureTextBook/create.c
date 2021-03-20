@@ -118,4 +118,6 @@ AdjList * CreateMap2() {
 	p = (ArcNode*)malloc(sizeof(ArcNode));
 	p->adjvex = 5;
 	G->vertex[7].head = p;
+
+	return G;
 }

@@ -12,14 +12,14 @@ namespace DataStructureTextBookUnitTest
 
 		TEST_METHOD(TestMethod_Stack01)
 		{
-			int a1 = 3;
+			/*int a1 = 3;
 			int a2 = 6;
 			int a4 = 9;
 			int *top = NULL;
 
-			StackPTR stack = CreateStack(sizeof(int));
-			Push(stack, &a1);
-			Push(stack, &a2);
+			StackPTR stack = CreateStack();
+			Push_SeqStack(stack, &a1);
+			Push_SeqStack(stack, &a2);
 			top = (int*)Top(stack);
 			Assert::AreEqual(6, *top);
 
@@ -27,7 +27,7 @@ namespace DataStructureTextBookUnitTest
 			Assert::AreEqual(3, stack->Count);
 			top = (int*)Pop(stack);
 			Assert::AreEqual(9, *top);
-			Assert::AreEqual(2, stack->Count);
+			Assert::AreEqual(2, stack->Count);*/
 		}
 
 		TEST_METHOD(TestMethod_Stack02)

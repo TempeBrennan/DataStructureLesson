@@ -15,8 +15,11 @@ int main(void) {
 	Push(stack, &tree2);
 	result = Top(stack);*/
 
-	testDFS1();
+	AdjMatrix* map1 = CreateMap1();
+	// 测试使用递归的方法，深度遍历图
+	//TraverseG1(map1);
 
+	TraverseG2(map1);
 	getch();
 	return 0;
 }

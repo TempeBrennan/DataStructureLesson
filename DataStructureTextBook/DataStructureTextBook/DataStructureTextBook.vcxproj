@@ -120,7 +120,6 @@
     <ClCompile Include="Dijkstra.c" />
     <ClCompile Include="HuffmanTree.c" />
     <ClCompile Include="MinTree.c" />
-    <ClCompile Include="Queue.c" />
     <ClCompile Include="TopSort.c" />
     <ClCompile Include="traverse.c" />
     <ClCompile Include="main.c" />
@@ -130,7 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Map.h" />
-    <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>

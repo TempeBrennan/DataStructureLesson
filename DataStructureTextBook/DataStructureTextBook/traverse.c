@@ -3,7 +3,6 @@
 #include "Map.h"
 #include "stdbool.h"
 #include "Stack.h"
-#include "Queue.h"
 
 int visited1[MAXVEX] = { 0 };
 
@@ -26,7 +25,7 @@ void testDFS1() {
 
 int FirstAdjVex(AdjMatrix *G, int vexIndex) {
 	for (int i = 0; i < G->vexnum; i++) {
-		if (G->arcs[vexIndex][i] != 1) {
+		if (G->arcs[vexIndex][i] == 1) {
 			return i;
 		}
 	}
@@ -34,8 +33,8 @@ int FirstAdjVex(AdjMatrix *G, int vexIndex) {
 }
 
 int NextAdjVex(AdjMatrix *G, int vexIndex, int current) {
-	for (int i = current; i < G->vexnum; i++) {
-		if (G->arcs[vexIndex][i] != 1) {
+	for (int i = current + 1; i < G->vexnum; i++) {
+		if (G->arcs[vexIndex][i] == 1) {
 			return i;
 		}
 	}
@@ -61,26 +60,27 @@ void TraverseG1(AdjMatrix *G) {
 		visited1[i] = 0;
 	}
 	for (int i = 0; i < G->vexnum; i++) {
-		dfs1(G, i);
+		if (!isVisited1(i)) {
+			dfs1(G, i);
+		}
 	}
 }
 
 void dfs2(AdjMatrix *G, int v0) {
 	StackPTR S = CreateStack();
-	int visited[MAXVEX] = { 0 };
 	Push_SeqStack(S, v0);
 	int w;
 	while (!Empty_SeqStack(S))
 	{
 		int v = Pop_SeqStack(S);
-		if (visited[v] != 1) {
+		if (visited1[v] != 1) {
 			visit1(G, v);
-			visited[v] = 1;
+			visited1[v] = 1;
 		}
 		w = FirstAdjVex(G, v);
 		while (w != -1)
 		{
-			if (visited[w] != 1) {
+			if (visited1[w] != 1) {
 				Push_SeqStack(S, w);
 			}
 			w = NextAdjVex(G, v, w);
@@ -91,8 +91,13 @@ void dfs2(AdjMatrix *G, int v0) {
 // 7.4 图的遍历 7.4.1
 // P174 算法7.4，非递归，深度优先搜索遍历图g
 void TraverseG2(AdjMatrix *G) {
+	for (int i = 0; i < MAXVEX; i++) {
+		visited1[i] = 0;
+	}
 	for (int i = 0; i < G->vexnum; i++) {
-		dfs2(G, i);
+		if (!isVisited1(i)) {
+			dfs2(G, i);
+		}
 	}
 }
 
@@ -102,14 +107,14 @@ void bfs1(AdjMatrix*G, int v0) {
 	QueuePTR Q = CreateQueue();
 	while (!EmptyQueue(Q))
 	{
-		int v = DeleteQueue(G);
+		int v = DeleteQueue(Q);
 		int w = FirstAdjVex(G, v);
-		while (w!=-1)
+		while (w != -1)
 		{
 			if (!isVisited1(w)) {
-				visit1(G,w);
+				visit1(G, w);
 				visited1[w] = 1;
-				EnterQueue(G, w);
+				EnterQueue(Q, w);
 			}
 		}
 		w = NextAdjVex(G, v, w);

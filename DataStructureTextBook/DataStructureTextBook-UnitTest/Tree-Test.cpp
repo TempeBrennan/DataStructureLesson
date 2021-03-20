@@ -3,6 +3,8 @@
 #include "../DataStructureTextBook/Tree.c"
 #include "../DataStructureTextBook/TreePractice1.c"
 #include "../DataStructureTextBook/ClueTree.c"
+#include "../DataStructureTextBook/create.c"
+#include "../DataStructureTextBook/traverse.c"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -101,6 +103,9 @@ namespace DataStructureTextBookUnitTest
 		{
 			BiTree tree = CreateTree01();
 			PreOrder(tree);
+			AdjMatrix* map1 = CreateMap1();
+			// 测试使用递归的方法，深度遍历图
+			TraverseG1(map1);
 		}
 
 		TEST_METHOD(TestMethod2)

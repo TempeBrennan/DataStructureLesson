@@ -3,7 +3,6 @@
 #include "Map.h"
 #include "stdbool.h"
 #include "Stack.h"
-#include "Queue.h"
 
 void Dijkstra(AdjMatrix *G, int start, int end, int dist[], int path[][MAXVEX]) {
 	int mindist, i, j, k, t = 1;

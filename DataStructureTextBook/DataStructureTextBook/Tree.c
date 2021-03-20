@@ -70,7 +70,7 @@ void PreOrderNonRecur(BiTree root) {
 		while (cur != NULL)
 		{
 			VisitTNode(cur->Data);
-			Push_SeqStack(stack, &cur);
+			Push_SeqStack(stack, (int)(&cur));
 			cur = cur->LChild;
 		}
 
@@ -94,7 +94,7 @@ void InOrderNonRecur(BiTree root) {
 	{
 		while (cur != NULL)
 		{
-			Push_SeqStack(stack, &cur);
+			Push_SeqStack(stack, (int)(&cur));
 			cur = cur->LChild;
 		}
 
@@ -119,7 +119,7 @@ void PostOrderNonRecur(BiTree root) {
 	{
 		while (cur != NULL)
 		{
-			Push_SeqStack(stack, &cur);
+			Push_SeqStack(stack, (int)(&cur));
 			cur = cur->LChild;
 		}
 
