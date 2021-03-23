@@ -31,9 +31,19 @@ typedef struct {
 	int arcnum;
 }AdjList;
 
+//typedef struct
+//{
+//	int adjvex;
+//	int lowcost;
+//}Closedge;
+
 AdjMatrix * CreateMap1();
 void testDFS1();
-int TopSort(AdjList G);
+int topSort(AdjList G);
 void TraverseG1(AdjMatrix *G);
 void TraverseG2(AdjMatrix *G);
 void TraverseG3(AdjMatrix *G);
+AdjMatrix * CreateMapForPrim();
+void Prim(AdjMatrix *G, int start);
+int topSort(AdjList G);
+AdjList* createTopSort();

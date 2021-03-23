@@ -38,6 +38,7 @@ int Pop_SeqStack(StackPTR stack) {
 	else
 	{
 		int result = stack->data[stack->top];
+		stack->data[stack->top] = 1234567;
 		stack->top--;
 		return result;
 	}

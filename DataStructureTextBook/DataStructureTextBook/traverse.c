@@ -56,7 +56,7 @@ void dfs1(AdjMatrix *G, int v0) {
 // 7.4 图的遍历 7.4.1
 // P174 算法7.3，深度优先搜索遍历图g
 void TraverseG1(AdjMatrix *G) {
-	for (int i = 0; i < MAXVEX; i++) {
+	for (int i = 0; i < G->vexnum; i++) {
 		visited1[i] = 0;
 	}
 	for (int i = 0; i < G->vexnum; i++) {
@@ -91,7 +91,7 @@ void dfs2(AdjMatrix *G, int v0) {
 // 7.4 图的遍历 7.4.1
 // P174 算法7.4，非递归，深度优先搜索遍历图g
 void TraverseG2(AdjMatrix *G) {
-	for (int i = 0; i < MAXVEX; i++) {
+	for (int i = 0; i < G->vexnum; i++) {
 		visited1[i] = 0;
 	}
 	for (int i = 0; i < G->vexnum; i++) {
@@ -105,6 +105,7 @@ void bfs1(AdjMatrix*G, int v0) {
 	visit1(G, v0);
 	visited1[v0] = 1;
 	QueuePTR Q = CreateQueue();
+	EnterQueue(Q, v0);
 	while (!EmptyQueue(Q))
 	{
 		int v = DeleteQueue(Q);
@@ -116,18 +117,20 @@ void bfs1(AdjMatrix*G, int v0) {
 				visited1[w] = 1;
 				EnterQueue(Q, w);
 			}
+			w = NextAdjVex(G, v, w);
 		}
-		w = NextAdjVex(G, v, w);
 	}
 }
 
 // 7.4 图的遍历 7.4.2
 // P176 算法7.6，广度优先搜索遍历图g
 void TraverseG3(AdjMatrix *G) {
-	for (int i = 0; i < MAXVEX; i++) {
+	for (int i = 0; i < G->vexnum; i++) {
 		visited1[i] = 0;
 	}
 	for (int i = 0; i < G->vexnum; i++) {
-		bfs1(G, i);
+		if (!isVisited1(i)) {
+			bfs1(G, i);
+		}
 	}
 }
