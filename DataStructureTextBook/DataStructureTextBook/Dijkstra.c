@@ -4,19 +4,25 @@
 #include "stdbool.h"
 #include "Stack.h"
 
-void Dijkstra(AdjMatrix *G, int start, int end, int dist[], int path[][MAXVEX]) {
+void Dijkstra(AdjMatrix *G, int start) {
 	int mindist, i, j, k, t = 1;
-	for (i = 1; i <= G->vexnum; i++) {
+	int dist[10];
+	int path[100][MAXVEX];
+	int isUsed[10];
+
+	for (i = 0; i < G->vexnum; i++) {
 		dist[i] = G->arcs[start][i];
 		if (G->arcs[start][i] != MAXVALUE) {
-			path[i][1] = start;
+			path[i][0] = start;
+			path[i][1] = i;
+			path[i][2] = -1;
 		}
 	}
-	path[start][0] = 1;
-	for (i = 2; i <= G->vexnum; i++) {
+	isUsed[start] = 1;
+	for (i = 1; i < G->vexnum; i++) {
 		mindist = MAXVALUE;
-		for (j = 1; j <= G->vexnum; j++) {
-			if (!path[j][0] && dist[j] < mindist) {
+		for (j = 0; j < G->vexnum; j++) {
+			if (isUsed[j] != 1 && dist[j] < mindist) {
 				k = j;
 				mindist = dist[j];
 			}
@@ -26,18 +32,33 @@ void Dijkstra(AdjMatrix *G, int start, int end, int dist[], int path[][MAXVEX]) 
 			return;
 		}
 
-		path[k][0] = 1;
-		for (j = 1; j <= G->vexnum; j++) {
-			if (!path[j][0] && G->arcs[k][j] < MAXVALUE && dist[k] + G->arcs[k][j] < dist[j]) {
+		// Now find the shortest path
+		// Print
+		isUsed[k] = 1;
+		printf("now we found %c-->%c nearest distance, path is ", G->vex[start], G->vex[k]);
+		for (int t = 0; t < 100; t++) {
+			if (path[k][t] == -1) {
+				break;
+			}
+			else if (t != 0) {
+				printf("-->");
+			}
+			printf("%c", G->vex[path[k][t]]);
+		}
+		printf("\n");
+		// Print end
+
+		for (j = 0; j < G->vexnum; j++) {
+			if (isUsed[j] != 1 && G->arcs[k][j] < MAXVALUE && dist[k] + G->arcs[k][j] < dist[j]) {
 				dist[j] = dist[k] + G->arcs[k][j];
-				t = 1;
-				while (path[k][t] != 0)
+				t = 0;
+				while (path[k][t] != -1)
 				{
 					path[j][t] = path[k][t];
 					t++;
 				}
-				path[j][t] = k;
-				path[j][t + 1] = 0;
+				path[j][t] = j;
+				path[j][t + 1] = -1;
 			}
 		}
 	}
@@ -63,4 +84,43 @@ void Floyd(AdjMatrix *G, int F[][MAXVEX]) {
 			}
 		}
 	}
+}
+
+AdjMatrix * CreateMapForDijkstra() {
+	AdjMatrix *G = (AdjMatrix*)malloc(sizeof(AdjMatrix));
+	G->vexnum = 7;
+	G->arcnum = 12;
+
+	G->vex[0] = 'A';
+	G->vex[1] = 'B';
+	G->vex[2] = 'C';
+	G->vex[3] = 'D';
+	G->vex[4] = 'E';
+	G->vex[5] = 'F';
+	G->vex[6] = 'G';
+
+	for (int i = 0; i < G->vexnum; i++) {
+		for (int j = 0; j < G->vexnum; j++) {
+			G->arcs[i][j] = INVALID;
+		}
+	}
+
+	G->arcs[0][1] = 2;
+	G->arcs[0][2] = 3;
+	G->arcs[0][3] = 2;
+
+	G->arcs[1][2] = 2;
+	G->arcs[1][5] = 8;
+
+	G->arcs[2][3] = 1;
+	G->arcs[2][4] = 3;
+	G->arcs[2][5] = 5;
+
+	G->arcs[3][4] = 5;
+
+	G->arcs[4][5] = 3;
+	G->arcs[4][6] = 9;
+
+	G->arcs[5][6] = 5;
+	return G;
 }

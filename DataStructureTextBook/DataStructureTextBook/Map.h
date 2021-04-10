@@ -47,3 +47,5 @@ AdjMatrix * CreateMapForPrim();
 void Prim(AdjMatrix *G, int start);
 int topSort(AdjList G);
 AdjList* createTopSort();
+void Dijkstra(AdjMatrix *G, int start);
+AdjMatrix * CreateMapForDijkstra();

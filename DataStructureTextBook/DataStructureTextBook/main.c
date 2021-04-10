@@ -26,8 +26,11 @@ int main(void) {
 	/*AdjMatrix* map2 = CreateMapForPrim();
 	Prim(map2, 9);*/
 
-	AdjList* map1 = createTopSort();
-	topSort(*map1);
+	/*AdjList* map1 = createTopSort();
+	topSort(*map1);*/
+
+	AdjMatrix* map1 = CreateMapForDijkstra();
+	Dijkstra(map1, 0);
 
 	getch();
 	return 0;
